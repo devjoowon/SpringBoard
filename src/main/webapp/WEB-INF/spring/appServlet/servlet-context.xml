@@ -25,10 +25,10 @@
 	</beans:bean>
 	
 	<!-- 일반적으로 Servlet WebApplicationContext 이 DI container는 Controller와 View 관련된 처리를 담당해요! -->
-	<context:component-scan base-package="my.spring.springweb"
-							use-default-filters="false"> <!-- 모든거 어노테이션 다 찾는 필터 끄고 -->
-		<context:include-filter type="annotation"
-								 expression="org.springframework.stereotype.Controller"/>	<!-- 컨트롤러 붙어있는 어노테이션만 찾아! 필터 -->
+	<context:component-scan base-package="my.spring.springboard">
+<!-- 							use-default-filters="false"> 모든거 어노테이션 다 찾는 필터 끄고 -->
+<!-- 		<context:include-filter type="annotation"
+								 expression="org.springframework.stereotype.Controller"/>	컨트롤러 붙어있는 어노테이션만 찾아! 필터 -->
 	</context:component-scan>
 	
 	

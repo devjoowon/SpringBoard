@@ -26,9 +26,9 @@
 		  <property name="configLocation" value="classpath:mybatis-config.xml"/>
 		  <property name="mapperLocations">
 		  	<list>
-		  		<value>classpath:mappers/Book.xml</value>
-		  		<value>classpath:mappers/Member.xml</value>
-		  		<value>classpath:mappers/Point.xml</value>
+		  	<value>classpath:mappers/Member.xml</value>
+<!-- 		  		<value>classpath:mappers/Book.xml</value>
+		  		<value>classpath:mappers/Point.xml</value> -->
 		  	</list>
 		  </property>
 	</bean>

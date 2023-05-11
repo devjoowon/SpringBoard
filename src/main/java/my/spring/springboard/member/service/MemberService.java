@@ -4,5 +4,7 @@ import my.spring.springboard.member.vo.MemberVO;
 
 public interface MemberService {
 	
-	boolean registerMember(MemberVO member);
+	public void register(MemberVO member) throws Exception;
+	
+	public MemberVO login(MemberVO member);
 }

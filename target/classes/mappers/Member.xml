@@ -5,9 +5,30 @@
 
 <mapper namespace="myMember">
 
+	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="Member">
 		INSERT INTO member
 		VALUES(#{memberId}, #{memberPw}, #{memberName})
 	</insert>
 
+	<!-- 로그인  -->
+	<resultMap type="Member" id="memberMap">
+		<result column="MEMBER_ID" property="memberId" />
+		<result column="MEMBER_PW" property="memberPw" />
+		<result column="MEMBER_NAME" property="memberName" />
+	</resultMap>
+	
+	<select id="login" parameterType="Member" resultMap="memberMap">
+		SELECT *
+		FROM member
+		WHERE MEMBER_ID = #{memberId}
+			AND MEMBER_PW = #{memberPw}
+	</select>
+	
+	<!-- 회원정보 수정 -->
+	<update id="updateMember" parameterType="Member">
+		UPDATE MEMBER_ID SET
+		MEMBER_PW = #{memberPw},
+		MEMBER_NAME = #{memberName}
+	</update>
 </mapper>
