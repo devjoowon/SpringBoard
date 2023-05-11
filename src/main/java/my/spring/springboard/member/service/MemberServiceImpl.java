@@ -8,9 +8,9 @@ import my.spring.springboard.member.vo.MemberVO;
 public class MemberServiceImpl implements MemberService {
 
 	@Override
-	public void insertMember(MemberVO vo) throws Exception {
+	public boolean registerMember(MemberVO vo) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 }
