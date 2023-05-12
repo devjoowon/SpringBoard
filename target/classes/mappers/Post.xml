@@ -2,16 +2,52 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="myPost">
 
 	<resultMap type="Post" id="postMap">
-		<result column="P_ID" property="postId"/>
-		<result column="P_TITLE" property="postTitle"/>
-		<result column="P_WRITER" property="postWriter"/>
-		<result column="P_CONTENT" property="postContent"/>
-		<result column="P_DATE" property="postDate"/>
-		<result column="P_LIKE" property="likeNum"/>
-		<result column="P_DISLIKE" property="dislikeNum"/>
+		<result column="P_ID" property="postId" />
+		<result column="P_TITLE" property="postTitle" />
+		<result column="P_WRITER" property="postWriter" />
+		<result column="P_CONTENT" property="postContent" />
+		<result column="P_DATE" property="postDate" />
+		<result column="P_LIKE_NUM" property="postLikeNum" />
+		<result column="P_DISLIKE_NUM" property="postDislikeNum" />
 	</resultMap>
+
+	<!-- 게시글 목록 보기 -->
+	<select id="selectPostList" parameterType="Post"
+		resultMap="postMap">
+		SELECT
+		P_ID,
+		P_TITLE,
+		P_WRITER,
+		P_DATE,
+		P_LIKE_NUM,
+		P_DISLIKE_NUM
+		FROM
+		POST
+		ORDER BY P_ID DESC
+	</select>
+
+	<!-- 게시글 세부사항 조회 -->
+	<select id="selectPostById" parameterType="Post"
+		resultMap="postMap">
+		SELECT 
+		P_ID,
+		P_TITLE, 
+		P_WRITER,
+		P_CONTENT, 
+		P_DATE,
+		P_LIKE_NUM, 
+		P_DISLIKE_NUM
+		FROM POST
+		WHERE P_ID = #{postId}
+	</select>
+	
+	<!-- 게시글 작성 -->
+	<insert id="insertPost" parameterType="Post">
+		INSERT INTO post
+		VALUES (#{postTitle}, #{postContent})
+	</insert>
 </mapper>

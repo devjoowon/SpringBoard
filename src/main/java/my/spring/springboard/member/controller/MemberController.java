@@ -58,7 +58,9 @@ public class MemberController {
 			return "redirect:/resources/login.html";
 		}else {
 			log.debug(login);
-			return "redirect:/post";
+			member.setMemberId(login.getMemberId());
+			member.setMemberName(login.getMemberName());
+			return "redirect:/post/postList";
 		}
 		
 	}
