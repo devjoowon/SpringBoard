@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="myPost">
+
+	<resultMap type="Post" id="postMap">
+		<result column="P_ID" property="postId"/>
+		<result column="P_TITLE" property="postTitle"/>
+		<result column="P_WRITER" property="postWriter"/>
+		<result column="P_CONTENT" property="postContent"/>
+		<result column="P_DATE" property="postDate"/>
+		<result column="P_LIKE" property="likeNum"/>
+		<result column="P_DISLIKE" property="dislikeNum"/>
+	</resultMap>
+</mapper>

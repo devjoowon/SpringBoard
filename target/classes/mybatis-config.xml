@@ -18,5 +18,6 @@
 		위해 사용함 -->
 	<typeAliases>
 		<typeAlias alias="Member" type="my.spring.springboard.member.vo.MemberVO"/>
+		<typeAlias alias="Post" type="my.spring.springboard.post.vo.PostVO"/>
 	</typeAliases>
 </configuration>

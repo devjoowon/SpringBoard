@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,19 +27,28 @@ public class MemberController {
 	public MemberVO createMember() {
 		return new MemberVO();
 	}
-
+	
+	// 회원가입 get
+	@GetMapping(value = "/register")
+	public String getRegister() {
+		
+		return "redirect:/resources/register.html";
+	}
+	
 	// 회원가입 post
 	@PostMapping(value = "/register")
 	public String postRegister(MemberVO member) throws Exception {
 		log.info("post register");
 
-		service.register(member);
+		service.registerMember(member);
 
 		return "redirect:/resources/login.html";
+		
 	}
-
+	
+	// 로그인
 	@PostMapping(value = "/login")
-	public String login(MemberVO member) {
+	public String login(@ModelAttribute(value = "loginMember") MemberVO member) {
 		log.info("post login");
 		log.info(member);
 
@@ -48,16 +58,10 @@ public class MemberController {
 			return "redirect:/resources/login.html";
 		}else {
 			log.debug(login);
-			return "articleList";
+			return "redirect:/post";
 		}
 		
 	}
 	
-//	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-//	public String logout(HttpSession session) throws Exception{
-//		
-//		session.invalidate();
-//		
-//		return "redirect:/";
-//	}
+	
 }

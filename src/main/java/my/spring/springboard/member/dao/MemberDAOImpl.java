@@ -17,7 +17,7 @@ public class MemberDAOImpl implements MemberDAO {
 	private SqlSession session;
 
 	@Override
-	public void register(MemberVO member) throws Exception {
+	public void insertMember(MemberVO member) throws Exception {
 		
 		int num = session.insert("myMember.insertMember", member);
 		
@@ -35,6 +35,18 @@ public class MemberDAOImpl implements MemberDAO {
 		MemberVO dbMember = session.selectOne("myMember.login", member);
 		
 		return dbMember;
+	}
+
+	@Override
+	public void updateMember(MemberVO member) throws Exception {
+		
+		int num = session.insert("myMember.updateMember", member);
+		
+		if (num != 1) {
+			throw new Exception();
+		}
+		
+		log.debug("DB 업데이트 완료");
 	}
 	
 

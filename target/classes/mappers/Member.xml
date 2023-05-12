@@ -5,6 +5,12 @@
 
 <mapper namespace="myMember">
 
+	<resultMap type="Member" id="memberMap">
+		<result column="MEMBER_ID" property="memberId" />
+		<result column="MEMBER_PW" property="memberPw" />
+		<result column="MEMBER_NAME" property="memberName" />
+	</resultMap>
+	
 	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="Member">
 		INSERT INTO member
@@ -12,12 +18,6 @@
 	</insert>
 
 	<!-- 로그인  -->
-	<resultMap type="Member" id="memberMap">
-		<result column="MEMBER_ID" property="memberId" />
-		<result column="MEMBER_PW" property="memberPw" />
-		<result column="MEMBER_NAME" property="memberName" />
-	</resultMap>
-	
 	<select id="login" parameterType="Member" resultMap="memberMap">
 		SELECT *
 		FROM member
