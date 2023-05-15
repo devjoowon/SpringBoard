@@ -28,8 +28,10 @@ public class PostServiceImpl implements PostService {
 	// 게시글 세부사항 조회
 	@Override
 	public PostVO selectPostById(PostVO post) {
+		PostVO result = postDao.selectPostById(post);
+		result.setComments(postDao.selectCommentsByPostId(post.getPostId()));
 		
-		return postDao.selectPostById(post);
+		return result;
 	}
 	
 }

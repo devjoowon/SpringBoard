@@ -14,6 +14,13 @@
 		<result column="P_LIKE_NUM" property="postLikeNum" />
 		<result column="P_DISLIKE_NUM" property="postDislikeNum" />
 	</resultMap>
+	
+	<resultMap type="Comment" id="commentMap">
+		<result column="C_ID" property="commentId" />
+		<result column="USER_ID" property="userId" />
+		<result column="POST_ID" property="postId" />
+		<result column="CONTENT" property="content" />
+	</resultMap>
 
 	<!-- 게시글 목록 보기 -->
 	<select id="selectPostList" parameterType="Post"
@@ -45,9 +52,19 @@
 		WHERE P_ID = #{postId}
 	</select>
 	
+	<select id="selectCommentsByPostId" parameterType="int"
+		resultMap="commentMap">
+		SELECT C_ID, USER_ID, POST_ID, CONTENT
+		FROM COMMENTS
+		WHERE POST_ID = #{postId}
+	
+	</select>
+	
 	<!-- 게시글 작성 -->
 	<insert id="insertPost" parameterType="Post">
 		INSERT INTO post
 		VALUES (#{postTitle}, #{postContent})
 	</insert>
+	
+	
 </mapper>

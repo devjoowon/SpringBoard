@@ -29,7 +29,7 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet">
-	<script src="./js/comment.js"></script>
+	<script src="/springboard/resources/js/comment.js"></script>
 <script src="./js/like.js"></script>
 </head>
 
@@ -112,7 +112,7 @@
 									<div class="fonts">
 										<button type="submit"
 											style="border: none; background: none; color: gray"
-											onclick="updateReply('${postDetail.postId}', '${loginId}')">
+											onclick="updateReply('${postDetail.postId}', '${loginMember.memberId}')">
 											<i class="fa fa-reply"></i>
 										</button>
 									</div>

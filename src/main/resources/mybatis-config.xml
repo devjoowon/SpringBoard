@@ -19,5 +19,6 @@
 	<typeAliases>
 		<typeAlias alias="Member" type="my.spring.springboard.member.vo.MemberVO"/>
 		<typeAlias alias="Post" type="my.spring.springboard.post.vo.PostVO"/>
+		<typeAlias alias="Comment" type="my.spring.springboard.post.vo.CommentVO"/>
 	</typeAliases>
 </configuration>

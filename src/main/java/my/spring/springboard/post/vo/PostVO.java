@@ -1,6 +1,7 @@
 package my.spring.springboard.post.vo;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +19,5 @@ public class PostVO {
 	private Date postDate;
 	private int postLikeNum;
 	private int postDislikeNum;
+	private List<CommentVO> comments;
 }
